@@ -82,6 +82,9 @@ func deleteMovie(w http.ResponseWriter, r *http.Request){
 
 func main() {
 	router := mux.NewRouter()
+
+	movies = append(movies, Movie{ID: "1", Isbn: "123", Title: "Bleed", Director: &Director{Firstname: "Spike", Lastname: "Lee"}})
+
 	router.HandleFunc("/movies", getMovies).Methods("GET")
 	router.HandleFunc("/movies/{id}",getMovie).Methods("GET")
 	router.HandleFunc("/movies",createMovie).Methods("POST")
